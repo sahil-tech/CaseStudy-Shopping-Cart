@@ -1,0 +1,63 @@
+.product-description{
+    background-color: lightgrey;
+    padding: 5px;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    height:104px;
+    @media (max-width: $breakpoint-tablet) {
+      margin-left: 3px;
+    }
+  }
+  .product-price-desktop{
+    display: flex;
+    font-size:15px;
+    @media (min-width: $breakpoint-tablet){
+      button{
+        display: flex;
+        flex: 0 1 55%;
+        align-items: center;
+        justify-content: center;
+      }
+      p{  
+        display: flex;
+        flex: 0 1 45%;
+      }
+    }
+    @media (max-width: $breakpoint-tablet) {
+      display: none;
+    }
+  }
+  .product-price-mobile{
+    @media (min-width: $breakpoint-mobile) {
+      display: none;
+    }
+    
+  }
+  .product-price-tablet{
+    display:none;
+    @media (min-width: $breakpoint-mobile)and(max-width: $breakpoint-tablet) {
+      display: block
+    }
+  }
+  .product-button {
+    cursor: pointer;
+    width: 80px;
+    box-sizing: border-box;
+    background-color: maroon;
+    border-radius: 5px;
+    color: white;
+    font-size: 10px;
+    height: 40px;
+    margin-left: 6px;
+    border: 1px solid maroon;
+    @media (max-width: $breakpoint-mobile) {
+      width:150px;
+    }
+    @media (min-width: $breakpoint-mobile) and(max-width: $breakpoint-tablet) {
+      width:240px;
+      margin-top:10px
+    }
+  }

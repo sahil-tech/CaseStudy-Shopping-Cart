@@ -1,0 +1,22 @@
+$breakpoint-mobile: 767px;
+$breakpoint-tablet:1023px;
+$grey1:#555555;
+
+@import './scss/carousel.scss';
+@import './scss/header.scss';
+@import './scss/banner.scss';
+@import './scss//product.scss';
+@import './scss//signup.scss';
+@import './scss/productCard.scss';
+
+.App {
+    text-align: center;
+  }
+  
+
+  
+  
+  
+  
+
+

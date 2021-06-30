@@ -1,0 +1,131 @@
+.login-container{
+    display:flex;
+    width:70%;
+    margin:0 auto;
+    @media (min-width: $breakpoint-mobile) and (max-width: $breakpoint-tablet){
+      width: 90%;
+    }
+    @media (max-width: $breakpoint-mobile){
+      display:block;
+      width:98%
+    }
+  }
+  .login-container-text{
+    margin-top:60px;
+    text-align: left;
+    @media (min-width: $breakpoint-tablet){
+      width:340px
+    }
+    @media (min-width: $breakpoint-mobile)and(max-width: $breakpoint-tablet) {
+      width:45%
+    }
+    h2{
+      margin:0px;
+    }
+    p{
+      font-size:13px
+    }
+    @media (max-width: $breakpoint-mobile){
+      text-align: center;
+      margin-top: 15px;
+    }
+  }
+  .login-form{
+    margin-left:30px;
+    display:grid;
+    margin-top:60px;
+    @media (max-width: $breakpoint-mobile){
+      margin-top: 25px;
+      margin-left:0px;
+    }
+    input{
+      margin:12px 0px 20px 0px;
+      box-sizing: border-box;
+      border:none;
+      border-bottom: 1px solid lightgray;
+      width:350px;
+      + label{
+        color:#9a9595
+      }
+      @media (min-width: $breakpoint-mobile) and (max-width: $breakpoint-tablet){
+        width: 275px;
+      }
+      @media (max-width: $breakpoint-mobile){
+        margin: 5px auto;
+        width:300px;
+        padding-top: 15px
+      }
+    };
+    
+    input:hover,
+    input:focus{
+      border:none;
+      border-bottom: 1px solid lightblue;
+      outline: none;
+    };
+  }
+  .login-fields:hover,
+  .login-fields:focus{
+    label{
+      color: lightblue;
+      padding-top:8px;
+      transition: padding-top .3s ;
+    }
+  }
+  .login-fields{
+    display:grid;
+    text-align: left;
+    p{
+      margin-top: -16px;
+      font-size: 12px;
+      color: red;
+    }
+    label{
+      color: #9a9595;
+      box-sizing: border-box;
+      height: 30px;
+      padding-top: 17px;
+      @media (max-width : $breakpoint-mobile) {
+        padding-top: 16px;
+        margin-left:9%
+      }
+    }
+    @media (max-width: $breakpoint-mobile){
+      margin-bottom: 20px;
+    }
+  }
+  
+  .login-button{
+    box-sizing: border-box;
+    background-color: maroon;
+    border-radius: 5px;
+    color: white;
+    font-size: 14px;
+    height: 40px;
+    border: 1px solid maroon;
+    margin-top:10px;
+    @media (max-width: $breakpoint-mobile) {
+      margin-left: auto;
+      margin-right: auto;
+      width: 300px;
+    }
+  }
+
+  .footer{
+    margin-top:30px;
+    width:100%;
+    background-color: lightgray;
+    text-align: left;
+    @media (max-width: $breakpoint-mobile) {
+      text-align:center
+    }
+    p{
+      padding: 10px 0px;
+      margin: 0 auto;
+      width:80%;
+      font-size: 13px;
+      @media (max-width: $breakpoint-mobile) {
+        width: 100%
+      }
+    }
+  }
