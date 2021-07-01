@@ -36,7 +36,7 @@ function Header(props) {
         loggedOut();
         sessionStorage.clear();
         alert('user logged out')
-        history.push('/login');
+        history.push('/');
     }
     return (
         <div className="header">
