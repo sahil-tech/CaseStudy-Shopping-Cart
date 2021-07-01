@@ -54,14 +54,14 @@ class Product extends react.Component {
                 that.props.addToCart(user);
             })
     }
-    componentDidUpdate(prevProps, prevState) {
-        if (prevState.cartCount !== this.state.cartCount) {
-            let word = this.props.location.email + 'cart';
-            localStorage.setItem(word, JSON.stringify(Array.from(this.state.cartItems.entries())));
-            console.log('ls', new Map(JSON.parse(localStorage.getItem(word))));
-        }
+    // componentDidUpdate(prevProps, prevState) {
+    //     if (prevState.cartCount !== this.state.cartCount) {
+    //         let word = this.props.location.email + 'cart';
+    //         localStorage.setItem(word, JSON.stringify(Array.from(this.state.cartItems.entries())));
+    //         console.log('ls', new Map(JSON.parse(localStorage.getItem(word))));
+    //     }
 
-    }
+    // }
     render() {
         console.log('redux state', this.props.state)
         return (

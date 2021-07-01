@@ -69,7 +69,7 @@ function LogIn(props) {
                 }
             }
             else {
-                setEmailError('invalid user');
+                setEmailError('Email does not exist');
             }
         }
         else {
