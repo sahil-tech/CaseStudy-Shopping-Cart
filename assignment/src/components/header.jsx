@@ -39,16 +39,16 @@ function Header(props) {
         history.push('/');
     }
     return (
-        <div className="header">
+        <header className="header">
             <div className="header-content">
                 <img className="header-logo" src="static/images/logo.png" alt="logo" />
                 <ul className="header-link">
-                    <a href="/" >Home</a>
-                    <a href="/product" >Products</a>
+                    <nav href="/" >Home</nav>
+                    <nav href="/product" >Products</nav>
                 </ul>
                 {!sessionStorage.getItem('isLoggedIn')  ? <ul className="header-link-login">
-                    <a href='/login'>Sigin</a>
-                    <a href="/register" >Register</a>
+                    <nav href='/login'>Sigin</nav>
+                    <nav href="/register" >Register</nav>
                 </ul>
                 :<button class="header-logout" onClick={logout}>LogOut</button>}
                 <div className="cart-icon-container">
@@ -65,9 +65,9 @@ function Header(props) {
                         <div className="mini-cart-product-details">
                             <h5>{item.name}</h5>
                             <div className="mini-cart-quantity">
-                                <div className="quantity-changer" onClick={() => removeFromCart(item)}>-</div>
+                                <button className="quantity-changer" onClick={() => removeFromCart(item)}>-</button>
                                 <p>{cartItems[value]}</p>
-                                <div className="quantity-changer" onClick={() => addToCart(item)}>+</div>
+                                <button className="quantity-changer" onClick={() => addToCart(item)}>+</button>
                                 <p className="mini-cart-cross">{'x'}</p>
                                 <p>{'Rs'}{item.price}</p>
                             </div>
@@ -94,7 +94,7 @@ function Header(props) {
                     </div>
                 }
             </div >
-        </div >
+        </header >
     );
 }
 

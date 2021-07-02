@@ -24,7 +24,7 @@
         display: none;
       }
       
-      a{
+      nav{
         margin: 34px 50px 0px 5px;
         text-decoration: none;
         color: #000;
@@ -61,7 +61,7 @@
       }
 
       
-      a{
+      nav{
         margin: 0 5px;
         text-decoration: none;
         color: #000;
@@ -224,6 +224,7 @@
     margin:auto;
     color: #fff;
     font-size: 17px;
+    border: 1px solid maroon;
     box-sizing: border-box;
   }
   .checkout-button-container{

@@ -54,26 +54,18 @@ class Product extends react.Component {
                 that.props.addToCart(user);
             })
     }
-    // componentDidUpdate(prevProps, prevState) {
-    //     if (prevState.cartCount !== this.state.cartCount) {
-    //         let word = this.props.location.email + 'cart';
-    //         localStorage.setItem(word, JSON.stringify(Array.from(this.state.cartItems.entries())));
-    //         console.log('ls', new Map(JSON.parse(localStorage.getItem(word))));
-    //     }
-
-    // }
     render() {
         console.log('redux state', this.props.state)
         return (
             <react.Fragment>
                 <div className="home-container">
-                    <div className="side-nav">
+                    <aside className="side-nav">
                         {this.state.categories.map(item => <div key={item.name} onClick={() => this.setCategory(item.id)} className={"category-section" + (this.state.categoryFilter === item.id ? ' active' : '')}>
                             <p className="category-list">{item.name}</p>
                         </div>)}
-                    </div>
+                    </aside>
 
-                    <div className="product-container">
+                    <section className="product-container">
                         <select className="side-nav-mobile" onChange={(e) => this.setCategory(e.target.value)}>
                             <option value="All Products">All Products</option>
                             {this.state.categories.map(item => <option key={item.name} value={item.id}>
@@ -92,7 +84,7 @@ class Product extends react.Component {
                                 addToCart = {this.addToCart}/>
                             )}
 
-                    </div>
+                    </section>
                 </div>
             </react.Fragment >
         )
