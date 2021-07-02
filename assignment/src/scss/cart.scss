@@ -1,0 +1,211 @@
+.cart-icon{
+    background-color: lightgray;
+    padding: 9px 10px 7px 9px;
+    position: absolute;
+    right: 223px;
+    top: 43px;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    color: maroon;
+    float: right;
+    @media (max-width: $breakpoint-mobile) {
+      top: 25px;
+      right: 61px;
+    }
+    @media (min-width: $breakpoint-mobile)and(max-width: $breakpoint-tablet) {
+      top:42px;
+      right:73px
+    }
+  }
+  .cart-quantity{
+    height: 31px;
+    background-color: lightgray;
+    position: absolute;
+    padding: 11px 6px 4px 4px;
+    right: 162px;
+    top: 27px;
+    @media (max-width: $breakpoint-mobile) {
+      top: 9px;
+      right: 0px;
+    }
+    @media (min-width: $breakpoint-mobile)and(max-width: $breakpoint-tablet) {
+      top:26px;
+      right:12px
+    }
+  }
+  .item-total{
+    display: flex;
+    flex: 1;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  
+  .mini-cart-cross{
+    margin-right: 18px
+  }
+  .mini-cart-container{
+    z-index:2;
+    position: absolute;
+    right:37px;
+    top:83px;
+    width: 400px;
+    background-color: lightgray;
+    display: block;
+    border: 1px solid lightgray;
+    @media (min-width: $breakpoint-mobile) and (max-width: $breakpoint-tablet) {
+      right:12px;
+      top: 88px
+    }
+    @media (max-width: $breakpoint-mobile){
+      right:0px;
+      top: 72px;
+      width: 340px
+    }
+    .cart-header{
+      margin-top: 10px;
+      color: white;
+      background-color:#212020;
+      padding: 10px;
+      display: flex;
+      span{
+        cursor: pointer;
+        display: flex;
+        flex-grow: 1;
+        justify-content: flex-end;
+        align-items: flex-end;
+      }
+    }
+  }
+  .mini-cart-container-noItem{
+    z-index:2;
+    position: absolute;
+    right:37px;
+    top:83px;
+    width: 400px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    align-items: center;
+    justify-content: center;
+    @media (min-width: $breakpoint-mobile) and (max-width: $breakpoint-tablet) {
+      right:12px;
+      top: 88px
+    }
+    @media (max-width: $breakpoint-mobile){
+      right:0px;
+      top: 72px;
+      width: 340px
+    }
+    .cart-header{
+      color: white;
+      background-color:#212020;
+      padding: 10px;
+      display: flex;
+      width: 95%;
+      span{
+        cursor: pointer;
+        display: flex;
+        flex-grow: 1;
+        justify-content: flex-end;
+        align-items: flex-end;
+      }
+    }
+    h4{
+      margin-top:80px;
+      margin-bottom:5px
+    }
+    p{
+      margin-top:5px;
+      margin-bottom:80px;
+    }
+    .checkout-button{
+      justify-content: center;
+      margin-bottom: 5px
+    }
+  }
+  .mini-cart{
+    display:flex;
+    background-color: white;
+    margin:10px 0px;
+  }
+  .cart-image{
+    width:80px;
+    height: auto;
+  }
+  .mini-cart-product-details{
+    display: block;
+    width:190px;
+    margin-left:10px;
+  }
+  .mini-cart-quantity{
+    display: flex;
+    margin-top: -15px;
+  }
+  
+  .quantity-changer{
+    background-color: maroon;
+    height:25px;
+    width:25px;
+    border-radius: 50%;
+    margin:auto;
+    color: #fff;
+    font-size: 17px;
+    border: 1px solid maroon;
+    box-sizing: border-box;
+  }
+  .checkout-button-container{
+    background-color: #fff;
+    text-align: center;
+    padding-bottom: 5px;
+    p{
+      font-size:12px;
+    }
+  }
+  .checkout-button{
+    box-sizing: border-box;
+    background-color: maroon;
+    border-radius: 5px;
+    color: white;
+    font-size: 14px;
+    height: 40px;
+    border: 1px solid maroon;
+    margin-top:3px;
+    width:96%;
+    margin:0 auto;
+    display: flex;
+    align-items: center;
+    span{
+      display: flex;
+      flex: 0 1 70%;
+      justify-content: flex-start;
+    }
+    p{
+      font-size:14px;
+      display: flex;
+      flex: 0 1 30%;
+      align-items: center;
+      justify-content: center;
+    }
+
+  }
+  .lowest-price-container{
+    padding: 0px 10px;
+    display: flex;
+    background-color: #fff;
+    width:90%;
+    margin: 0 auto;
+    border-radius: 5px;
+    align-items: center;
+    img{
+      width:136px;
+      height:auto;
+    }
+    p{
+      display: flex;
+      font-size: 12px;
+      flex:1;
+      justify-content: center;
+    }
+  }

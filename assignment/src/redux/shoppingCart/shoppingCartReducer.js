@@ -59,7 +59,8 @@ const shoppingCartReducer = (state = initialState, action) => {
                     ...state,
                     cartCount : 0,
                     cartItems : {},
-                    email:''
+                    email:'',
+                    showCart: false
                 }
             }
         default: return state
