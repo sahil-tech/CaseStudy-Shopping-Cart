@@ -1,9 +1,9 @@
 import './App.scss';
-import Home from './components/home';
-import Product from './components/product';
-import SignUp from './components/signUp';
-import LogIn from './components/logIn';
-import Header from './components/header'
+import Home from './components/Home/home';
+import Product from './components/Product/product';
+import SignUp from './components/LoginAndRegistration/signUp';
+import LogIn from './components/LoginAndRegistration/logIn';
+import Header from './components/Header/header'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { Provider } from 'react-redux';
 import store from './redux/shoppingCart/store'

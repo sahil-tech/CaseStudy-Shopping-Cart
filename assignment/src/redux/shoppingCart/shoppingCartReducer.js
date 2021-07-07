@@ -47,22 +47,21 @@ const shoppingCartReducer = (state = initialState, action) => {
             let data = JSON.parse(localStorage.getItem(val));
             return {
                 ...state,
-                cartItems: data ? {...data.cartItems} : {},
+                cartItems: data ? { ...data.cartItems } : {},
                 cartCount: data ? data.cartCount : 0,
                 email: action.payload
             }
-            case LOGGED_OUT:{
-                let val = state.email.concat('cart')
-                localStorage.setItem(val,JSON.stringify(state));
-                console.log(state.email,JSON.parse(localStorage.getItem(val)));
-                return {
-                    ...state,
-                    cartCount : 0,
-                    cartItems : {},
-                    email:'',
-                    showCart: false
-                }
+        case LOGGED_OUT: {
+            let val = state.email.concat('cart')
+            localStorage.setItem(val, JSON.stringify(state));
+            return {
+                ...state,
+                cartCount: 0,
+                cartItems: {},
+                email: '',
+                showCart: false
             }
+        }
         default: return state
     }
 }

@@ -1,4 +1,5 @@
-import { createStore } from 'redux';
+import { createStore,combineReducers } from 'redux';
+import { reducer as formReducer } from 'redux-form'
 import shoppingCartReducer from './shoppingCartReducer';
 
 function saveToSessionStorage(state) {
@@ -21,10 +22,12 @@ function loadFromSessionStorage() {
         return undefined;
     }
 }
-
-const store = createStore(shoppingCartReducer,loadFromSessionStorage());
-
+const rootReducer = combineReducers({
+    shopping:shoppingCartReducer,
+    form:formReducer
+  })
+const store = createStore(rootReducer,loadFromSessionStorage());
 store.subscribe(() => saveToSessionStorage(store.getState()));
-// const store = createStore(shoppingCartReducer)
+
 export default store;
 

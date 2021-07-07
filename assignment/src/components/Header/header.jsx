@@ -1,15 +1,16 @@
 import React from "react";
 import { useHistory } from 'react-router-dom'
 import { FaShoppingCart } from 'react-icons/fa';
-import { addToCart, toggleCart, removeFromCart, loggedOut } from "../redux/shoppingCart/shoppingCartActions";
+import { addToCart, toggleCart, removeFromCart, loggedOut } from "../../redux/shoppingCart/shoppingCartActions";
 import { connect } from 'react-redux'
-import Cart from "./cart";
+import Cart from "../Cart/cart";
+
 const mapStateToProps = state => {
     return {
         state,
-        showCart: state.showCart,
-        cartCount: state.cartCount,
-        cartItems: state.cartItems
+        showCart: state.shopping.showCart,
+        cartCount: state.shopping.cartCount,
+        cartItems: state.shopping.cartItems
     }
 }
 const mapDispatchToProps = dispatch => {
@@ -22,7 +23,7 @@ const mapDispatchToProps = dispatch => {
 }
 function Header(props) {
     const history = useHistory();
-    const {loggedOut, cartItems, showCart, toggleCart, cartCount, removeFromCart, addToCart } = props
+    const {state,loggedOut, cartItems, showCart, toggleCart, cartCount, removeFromCart, addToCart } = props
     const cartTotal = () => {
         let sum = 0;
         for(let val1 in cartItems){
@@ -38,6 +39,7 @@ function Header(props) {
         alert('user logged out')
         history.push('/');
     }
+    // console.log('reducerstate',state)
     return (
         <header className="header">
             <div className="header-content">

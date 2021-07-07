@@ -9,11 +9,11 @@
   }
   .product-card{
     width:23%;
-    border-bottom: 1px dashed lightgrey;
+    border-bottom: $border1;
     padding: 10px; 
     box-sizing: border-box;
     margin: 2px 6px;
-    box-shadow: 3px 0 5px -2px lightgray;
+    box-shadow: $boxShadow2;
     @media (max-width: $breakpoint-mobile) {
       width:100%;
       margin:2px 0px

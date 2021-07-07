@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Banner from './Banner';
-import Carousel from './carousel'
+import Banner from '../Banner/Banner';
+import Carousel from '../Carousel/carousel'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 

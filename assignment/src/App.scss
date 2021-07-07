@@ -1,14 +1,66 @@
 $breakpoint-mobile: 767px;
 $breakpoint-tablet:1023px;
 $grey1:#555555;
+$boxShadow1: 0px 5px 5px lightgray;
+$boxShadow2:3px 0 5px -2px lightgray;
+$border1:1px dashed lightgrey;
 
-@import './scss/carousel.scss';
-@import './scss/header.scss';
-@import './scss/banner.scss';
-@import './scss//product.scss';
-@import './scss//signup.scss';
-@import './scss/productCard.scss';
-@import './scss/cart.scss';
+.col-3{
+  width:25%
+}
+.col-4{
+  width:33.32%
+}
+.col-5{
+  width:41.65%
+}
+.col-6{
+  width:49.98%
+}
+.col-sm-6{
+  @media (max-width: $breakpoint-mobile) {
+    width:50%;
+  }
+}
+.col-7{
+  width:58.31%
+}
+.col-8{
+  width:66.64%
+}
+.col-10{
+  width:83.3%
+}
+.col-9{
+  width:74.97%
+}
+.col-md-11{
+  @media (min-width: $breakpoint-mobile)and(max-width:$breakpoint-tablet) {
+    width:91.63%
+  }
+}
+.col-sm-11{
+  @media (max-width:$breakpoint-mobile) {
+    width:91.63%
+  }
+}
+.mx-auto{
+  margin-left: auto;
+  margin-right: auto
+}
+.my-auto{
+  margin-top:auto;
+  margin-bottom:auto
+}
+
+
+@import './components/Carousel/carousel.scss';
+@import './components/Header/header.scss';
+@import './components/Banner/banner.scss';
+@import './components/Product/product.scss';
+@import './components/LoginAndRegistration/signup.scss';
+@import './components/Product/productCard.scss';
+@import './components/Cart/cart.scss';
 
 .App {
     text-align: center;

@@ -1,7 +1,7 @@
 import react from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux'
-import { addToCart } from '../redux/shoppingCart/shoppingCartActions';
+import { addToCart } from '../../redux/shoppingCart/shoppingCartActions';
 import ProductCard from './productCard'
 
 const mapStateToProps = state => {
