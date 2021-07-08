@@ -1,11 +1,14 @@
-import { TOGGLE_CART, ADD_TO_CART, REMOVE_FROM_CART, LOGGED_IN, LOGGED_OUT } from "./shoppingCartTypes"
+import { TOGGLE_CART, ADD_TO_CART, REMOVE_FROM_CART, LOGGED_IN, LOGGED_OUT, FETCH_BANNERS_SUCCEED, FETCH_CATEGORIES_SUCCEED, FETCH_PRODUCTS_SUCCEED, REGISTRATION_SUCCEED } from "./shoppingCartTypes"
 
 
 const initialState = {
     cartItems: {},
     showCart: false,
     cartCount: 0,
-    email: ''
+    email: '',
+    banners:[],
+    products:[],
+    categories:[],
 }
 
 const shoppingCartReducer = (state = initialState, action) => {
@@ -13,6 +16,25 @@ const shoppingCartReducer = (state = initialState, action) => {
         case TOGGLE_CART: return {
             ...state,
             showCart: !state.showCart
+        }
+        case FETCH_BANNERS_SUCCEED: return{
+            ...state,
+            banners: [...action.payload]
+        }
+        case FETCH_CATEGORIES_SUCCEED: return{
+            ...state,
+            categories: [...action.payload]
+        }
+        case REGISTRATION_SUCCEED: {
+            localStorage.setItem(action.payload.email, JSON.stringify(action.payload))
+            alert('registration successfull');
+            return {
+                ...state
+            }
+        }
+        case FETCH_PRODUCTS_SUCCEED: return{
+            ...state,
+            products:[...action.payload]
         }
         case ADD_TO_CART: {
             var obj = { ...state.cartItems }
@@ -43,6 +65,7 @@ const shoppingCartReducer = (state = initialState, action) => {
             }
         }
         case LOGGED_IN:
+            sessionStorage.setItem('isLoggedIn', true);
             let val = action.payload.concat('cart')
             let data = JSON.parse(localStorage.getItem(val));
             return {
@@ -52,6 +75,7 @@ const shoppingCartReducer = (state = initialState, action) => {
                 email: action.payload
             }
         case LOGGED_OUT: {
+            sessionStorage.clear();
             let val = state.email.concat('cart')
             localStorage.setItem(val, JSON.stringify(state));
             return {

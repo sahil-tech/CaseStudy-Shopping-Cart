@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { loggedIn } from '../../redux/shoppingCart/shoppingCartActions';
-import FieldLevelValidationForm from './form'
-import { reset } from 'redux-form'
-
+import FieldLevelValidationForm from './form';
+import {reset} from 'redux-form';
 
 const mapDispatchToProps = dispatch => {
-    return {
-        loggedIn: (payload) => dispatch(loggedIn(payload))
+    return  {
+        loggedIn: (payload) => dispatch(loggedIn(payload)),
+        clear: () => dispatch(reset('fieldLevelValidation'))
     }
 }
 const mapStateToProps = state => {
@@ -17,11 +17,11 @@ const mapStateToProps = state => {
 }
 
 function LogIn(props) {
-    const { history, loggedIn, clear, reset } = props;
+    const { history, loggedIn, clear} = props;
     const [emailError, setEmailError] = useState();
     const [passwordError, setPasswordError] = useState();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e,dispatch) => {
         e.preventDefault()
         const { password, email } = props.state.form.loginForm.values ? props.state.form.loginForm.values : { email: undefined, password: undefined }
         if (email && password) {
@@ -30,12 +30,12 @@ function LogIn(props) {
                 setEmailError('')
                 if (password === id.password) {
                     setPasswordError('')
-                    sessionStorage.setItem('isLoggedIn', true);
+                    loggedIn(email)
                     history.push({
                         pathname: '/product',
                         email
                     })
-                    loggedIn(email)
+                    
                 }
                 else setPasswordError('invalid password')
             }

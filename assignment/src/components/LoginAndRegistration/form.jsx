@@ -39,10 +39,7 @@ const renderField = ({
                 (warning && <span className="error-message">{warning}</span>))}
     </div>
 )
-const afterSubmit = (dispatch) => {
-    dispatch(reset('fieldLevelValidation'))
-}
-
+   
 const FieldLevelValidationForm = props => {
     const { nameError,firstname, lastname, emailId, password, handleSubmit, emailError, passwordError, confirmPassword,confirmPasswordError } = props
     return (

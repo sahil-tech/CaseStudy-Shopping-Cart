@@ -3,24 +3,27 @@ import axios from 'axios';
 import Banner from '../Banner/Banner';
 import Carousel from '../Carousel/carousel'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { fetchBanners, fetchCategories } from '../../redux/shoppingCart/shoppingCartActions'
+import { connect } from 'react-redux';
 
+const mapDispatchToProps = dispatch => {
+    return {
+        fetchBanner : () => dispatch(fetchBanners()),
+        fetchCategory : () => dispatch(fetchCategories())
+    }
+}
+const mapStateToProps = state => {
+    return{
+        promotions: state.shopping.banners,
+        categories: state.shopping.categories
+    }
+}
 
-function Home() {
-    const [categories, setCategories] = useState([]);
-    const [promotions, setPromotions] = useState([]);
-
-    useEffect(() => {
-        axios.get('http://localhost:5000/categories')
-            .then(res => {
-                const categories = res.data;
-                setCategories([...categories])
-            })
-        axios.get('http://localhost:5000/banners')
-            .then(res => {
-                const promotions = res.data;
-                setPromotions([...promotions])
-            })
-
+function Home(props) {
+    const {promotions, fetchBanner, fetchCategory, categories } = props
+    useEffect((dispatch) => {
+        fetchBanner();
+        fetchCategory();
     }, []);
     return (
         <React.Fragment>
@@ -30,4 +33,4 @@ function Home() {
     )
 }
 
-export default Home
+export default connect(mapStateToProps, mapDispatchToProps)(Home)

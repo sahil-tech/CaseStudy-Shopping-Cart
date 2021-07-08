@@ -18,7 +18,7 @@ function App() {
             <Route path="/" exact component={Home} />
             <Route path="/login" component={sessionStorage.getItem('isLoggedIn') ? Home : LogIn} />
             <Route path="/register" component={sessionStorage.getItem('isLoggedIn') ? Home : SignUp} />
-            <Route path="/product" exact component={sessionStorage.getItem('isLoggedIn') ? Product : Home } />
+            <Route path="/product"  component={sessionStorage.getItem('isLoggedIn') ? Product : Home } />
           </Switch>
         </div>
       </Router>

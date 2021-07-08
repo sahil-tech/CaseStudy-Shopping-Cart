@@ -1,14 +1,28 @@
-import { TOGGLE_CART, ADD_TO_CART, REMOVE_FROM_CART, LOGGED_IN, LOGGED_OUT } from "./shoppingCartTypes"
+import { TOGGLE_CART,REMOVE_FROM_CART, LOGGED_IN, LOGGED_OUT, FETCH_BANNERS, FETCH_CATEGORIES, FETCH_PRODUCTS, CART_API, REGISTRATION_SUCCEED } from "./shoppingCartTypes"
 
 export const toggleCart = () => {
     return {
         type: TOGGLE_CART
     }
 }
-
-export const addToCart = (payload) => {
+export const fetchBanners = () => {
     return {
-        type: ADD_TO_CART,
+        type: FETCH_BANNERS
+    }
+}
+export const fetchCategories = () => {
+    return {
+        type: FETCH_CATEGORIES
+    }
+}
+export const fetchProducts = () => {
+    return {
+        type: FETCH_PRODUCTS
+    }
+}
+export const cartApi = (payload) => {
+    return {
+        type: CART_API,
         payload
     }
 }
@@ -29,5 +43,12 @@ export const loggedIn = (payload) => {
 export const loggedOut = () => {
     return {
         type: LOGGED_OUT,
+    }
+}
+
+export const registartionSucceed = (payload) => {
+    return {
+        type: REGISTRATION_SUCCEED,
+        payload
     }
 }

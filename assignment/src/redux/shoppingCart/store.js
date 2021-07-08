@@ -1,6 +1,10 @@
-import { createStore,combineReducers } from 'redux';
+import { createStore,applyMiddleware,combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form'
 import shoppingCartReducer from './shoppingCartReducer';
+import createSagaMiddleware from 'redux-saga';
+import {mySaga} from './saga/shoppingCartSaga';
+
+
 
 function saveToSessionStorage(state) {
     try {
@@ -26,8 +30,10 @@ const rootReducer = combineReducers({
     shopping:shoppingCartReducer,
     form:formReducer
   })
-const store = createStore(rootReducer,loadFromSessionStorage());
+  const sagaMiddleware = createSagaMiddleware()
+const store = createStore(rootReducer,loadFromSessionStorage(), applyMiddleware(sagaMiddleware));
 store.subscribe(() => saveToSessionStorage(store.getState()));
+sagaMiddleware.run(mySaga)
 
 export default store;
 

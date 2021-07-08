@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from 'react-router-dom'
 import { FaShoppingCart } from 'react-icons/fa';
-import { addToCart, toggleCart, removeFromCart, loggedOut } from "../../redux/shoppingCart/shoppingCartActions";
+import { toggleCart, removeFromCart, loggedOut,cartApi } from "../../redux/shoppingCart/shoppingCartActions";
 import { connect } from 'react-redux'
 import Cart from "../Cart/cart";
 
@@ -16,14 +16,14 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         toggleCart: () => dispatch(toggleCart()),
-        addToCart: (payload) => dispatch(addToCart(payload)),
         removeFromCart: (payload) => dispatch(removeFromCart(payload)),
-        loggedOut: () => dispatch(loggedOut())
+        loggedOut: () => dispatch(loggedOut()),
+        addToCart : (payload) => dispatch(cartApi(payload))
     }
 }
 function Header(props) {
     const history = useHistory();
-    const {state,loggedOut, cartItems, showCart, toggleCart, cartCount, removeFromCart, addToCart } = props
+    const {loggedOut, cartItems, showCart, toggleCart, cartCount, removeFromCart, addToCart } = props
     const cartTotal = () => {
         let sum = 0;
         for(let val1 in cartItems){
@@ -35,11 +35,10 @@ function Header(props) {
     let total = cartTotal()
     const logout = () => {
         loggedOut();
-        sessionStorage.clear();
         alert('user logged out')
         history.push('/');
     }
-    // console.log('reducerstate',state)
+
     return (
         <header className="header">
             <div className="header-content">

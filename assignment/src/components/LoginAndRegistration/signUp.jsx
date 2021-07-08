@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import FieldLevelValidationForm from './form'
 import {connect} from 'react-redux';
+import { registartionSucceed } from '../../redux/shoppingCart/shoppingCartActions';
 
 const mapStateToProps = state => {
     return {
@@ -9,7 +10,9 @@ const mapStateToProps = state => {
     }
 }
 const mapDispatchToProps = dispatch => {
-    return{};
+    return{
+        registration : (payload) => dispatch(registartionSucceed(payload))
+    };
 }
 function SignUp(props) {
     const history = useHistory();
@@ -52,9 +55,7 @@ function SignUp(props) {
                                 'name': firstname,
                                 'password': password
                             }
-                        
-                            localStorage.setItem(email, JSON.stringify(user))
-                            alert('registration successfull');
+                            props.registration(user)
                             history.push('/login')
                         }
                     }
