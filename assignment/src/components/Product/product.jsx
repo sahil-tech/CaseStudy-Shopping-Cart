@@ -47,7 +47,7 @@ class Product extends react.Component {
                 <div className="home-container">
                     <aside className="side-nav">
                         {this.props.categories.map(item => <div key={item.name} onClick={() => this.setCategory(item.id)} className={"category-section" + (this.state.categoryFilter === item.id ? ' active' : '')}>
-                            <p className="category-list">{item.name}</p>
+                            <li className="category-list">{item.name}</li>
                         </div>)}
                     </aside>
 

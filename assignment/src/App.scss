@@ -34,6 +34,9 @@ $border1:1px dashed lightgrey;
 .col-9{
   width:74.97%
 }
+.col-11{
+  width: 91.63%;
+}
 .col-md-11{
   @media (min-width: $breakpoint-mobile)and(max-width:$breakpoint-tablet) {
     width:91.63%

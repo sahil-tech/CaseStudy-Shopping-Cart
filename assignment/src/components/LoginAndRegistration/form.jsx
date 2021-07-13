@@ -24,6 +24,11 @@ const passwordFormat = value =>
     value && !/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,}$/.test(value)
         ? 'invalid password format'
         : undefined
+const afterSubmit = (dispatch) => {
+    dispatch(reset('fieldLevelValidation'));
+    dispatch(reset('loginForm'));
+    dispatch(reset('regisrationForm'))
+}
 
 const renderField = ({
     input,
@@ -39,9 +44,9 @@ const renderField = ({
                 (warning && <span className="error-message">{warning}</span>))}
     </div>
 )
-   
+
 const FieldLevelValidationForm = props => {
-    const { nameError,firstname, lastname, emailId, password, handleSubmit, emailError, passwordError, confirmPassword,confirmPasswordError } = props
+    const { nameError, firstname, lastname, emailId, password, handleSubmit, emailError, passwordError, confirmPassword, confirmPasswordError } = props
     return (
         <form onSubmit={handleSubmit}>
             {firstname && <Field
@@ -96,5 +101,6 @@ const FieldLevelValidationForm = props => {
 }
 
 export default reduxForm({
-    form: 'fieldLevelValidation'
+    form: 'fieldLevelValidation',
+    onSubmitSuccess: afterSubmit
 })(FieldLevelValidationForm)

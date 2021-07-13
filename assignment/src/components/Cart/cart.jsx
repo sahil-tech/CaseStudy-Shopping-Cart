@@ -25,7 +25,7 @@ const cart = (props) => {
                     <p className="item-total">{'Rs'}{item.price * cartItems[value]}</p>
                 </div>
             })}
-            <div className="lowest-price-container">
+            <div className="lowest-price-container col-11">
                 <img src="static/images/lowest-price.png" alt="lowest-price" />
                 <p>{'you wont find it cheaper anywhere'}</p>
             </div>

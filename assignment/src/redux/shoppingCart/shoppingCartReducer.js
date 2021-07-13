@@ -1,4 +1,5 @@
-import { TOGGLE_CART, ADD_TO_CART, REMOVE_FROM_CART, LOGGED_IN, LOGGED_OUT, FETCH_BANNERS_SUCCEED, FETCH_CATEGORIES_SUCCEED, FETCH_PRODUCTS_SUCCEED, REGISTRATION_SUCCEED } from "./shoppingCartTypes"
+import { TOGGLE_CART, ADD_TO_CART, REMOVE_FROM_CART, LOGGED_IN, LOGGED_OUT, FETCH_BANNERS_SUCCEED, 
+    FETCH_CATEGORIES_SUCCEED, FETCH_PRODUCTS_SUCCEED, REGISTRATION_SUCCEED } from "./shoppingCartTypes"
 
 
 const initialState = {
@@ -29,7 +30,7 @@ const shoppingCartReducer = (state = initialState, action) => {
             localStorage.setItem(action.payload.email, JSON.stringify(action.payload))
             alert('registration successfull');
             return {
-                ...state
+                ...state,
             }
         }
         case FETCH_PRODUCTS_SUCCEED: return{

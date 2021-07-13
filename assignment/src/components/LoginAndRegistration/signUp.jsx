@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import FieldLevelValidationForm from './form'
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import { registartionSucceed } from '../../redux/shoppingCart/shoppingCartActions';
 
 const mapStateToProps = state => {
@@ -10,8 +10,8 @@ const mapStateToProps = state => {
     }
 }
 const mapDispatchToProps = dispatch => {
-    return{
-        registration : (payload) => dispatch(registartionSucceed(payload))
+    return {
+        registration: (payload) => dispatch(registartionSucceed(payload))
     };
 }
 function SignUp(props) {
@@ -29,7 +29,7 @@ function SignUp(props) {
         setEmailError('');
         setPasswordError('');
         setConfirmPasswordError('');
-        const {firstname,lastname, password, email, confirmPassword } = props.state.form.registrationForm.values ? props.state.form.registrationForm.values : {firstname:undefined, email:undefined,password:undefined,confirmPassword:undefined}
+        const { firstname, lastname, password, email, confirmPassword } = props.state.form.registrationForm.values ? props.state.form.registrationForm.values : { firstname: undefined, email: undefined, password: undefined, confirmPassword: undefined }
         if (firstname && email && password && confirmPassword) {
             if (!emailFormat.test(email)) {
                 setEmailError('Please enter valid email id')
@@ -77,7 +77,7 @@ function SignUp(props) {
             }
         }
     }
-    
+
 
     return (
         <React.Fragment>
@@ -86,8 +86,8 @@ function SignUp(props) {
                     <h2>Register</h2>
                     <p>We dont share your personal details with anyone</p>
                 </div>
-                <div className = "login-form">
-                    <FieldLevelValidationForm nameError={nameError} emailError={emailError} passwordError={passwordError} confirmPasswordError={confirmPasswordError} form={'registrationForm'} handleSubmit = {handleSubmit} firstname lastname emailId password confirmPassword/>
+                <div className="login-form">
+                    <FieldLevelValidationForm nameError={nameError} emailError={emailError} passwordError={passwordError} confirmPasswordError={confirmPasswordError} form={'registrationForm'} handleSubmit={handleSubmit} firstname lastname emailId password confirmPassword />
                 </div>
             </div>
             <div className="footer">
@@ -96,4 +96,4 @@ function SignUp(props) {
         </React.Fragment>
     )
 }
-export default connect(mapStateToProps,mapDispatchToProps)(SignUp)
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp)
